@@ -30,6 +30,14 @@
 /// Remarks: it is automatically defined in the generated amalgamated header.
 // #define JSON_IS_AMALGAMATION
 
+#if defined(_MSC_VER)
+#ifdef JSON_BUILD_IMPLEMENTATION
+#define JSON_DLL_BUILD
+#else
+#define JSON_DLL
+#endif
+#endif
+
 // Export macros for DLL visibility
 #if defined(JSON_DLL_BUILD)
 #if defined(_MSC_VER) || defined(__MINGW32__)
